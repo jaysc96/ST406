@@ -1,5 +1,5 @@
 SELECT YEAR_ID, GAME_ID, BAT_ID,
-		AB*((H+BB+HBP)+TB*(AB+BB+SF+HBP))/(AB*(AB+BB+SF+HBP)) as OPS,
+	AB*((H+BB+HBP)+TB*(AB+BB+SF+HBP))/(AB*(AB+BB+SF+HBP)) as OPS,
         H as HITS,
         AB as AT_BATS,
         BB as WALKS,
