@@ -12,7 +12,7 @@ FROM (SELECT
         sum(case when AB_FL = 'T' then 1 else 0 end) as AB,
         sum(case when H_CD > 0 then 1 else 0 end) as H,
         sum(case when EVENT_CD = 16 then 1 else 0 end) as HBP,
-        sum(case when SH_FL = 'T' then 1 else 0 end) as SF,
+        sum(case when SF_FL = 'T' then 1 else 0 end) as SF,
         sum(case when EVENT_CD = 14 then 1 else 0 end) as BB,
         sum(H_CD) as TB
 	FROM retrosheet.events
