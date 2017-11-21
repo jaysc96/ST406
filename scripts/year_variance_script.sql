@@ -1,7 +1,8 @@
 SELECT YEAR_ID, BAT_ID,
 		(sum(AB)*(sum(H)+sum(BB)+sum(HBP))+sum(TB)*(sum(AB)+sum(BB)+sum(SF)+sum(HBP)))/(sum(AB)*(sum(AB)+sum(BB)+sum(SF)+sum(HBP))) as OPS,
         VARIANCE((AB*(H+BB+HBP)+TB*(AB+BB+SF+HBP))/(AB*(AB+BB+SF+HBP))) as OPS_VAR,
-        sum(AB) as AT_BATS
+        sum(AB) as AT_BATS,
+        count(BAT_ID) as GAMES_PLAYED
 FROM (SELECT YEAR_ID,
         BAT_ID,
         sum(case when AB_FL = 'T' then 1 else 0 end) as AB,
