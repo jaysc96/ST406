@@ -32,7 +32,7 @@ FROM (SELECT
         sum(case when BATTEDBALL_CD = 'G' then 1 else 0 end) as GROUNDBALLS,
         sum(case when EVENT_CD = 3 then 1 else 0 end) as STRIKEOUTS
 	FROM retrosheet.events
-	WHERE YEAR_ID > 2010 AND YEAR_ID != 2016 # <-- Select Year 
+	WHERE YEAR_ID > 2012 AND YEAR_ID != 2016 # <-- Select Year 
 	group by GAME_ID, BAT_ID) game_query
 having AT_BATS > 0
 order by YEAR_ID,BAT_ID;

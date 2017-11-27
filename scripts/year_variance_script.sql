@@ -12,10 +12,10 @@ FROM (SELECT YEAR_ID,
         sum(case when EVENT_CD = 14 OR EVENT_CD = 15 then 1 else 0 end) as BB,
         sum(H_CD) as TB
 FROM retrosheet.events
-WHERE YEAR_ID = 2015 # <-- Select Year 
+WHERE YEAR_ID > 2012 AND YEAR_ID != 2016 # <-- Select Year 
 group by BAT_ID, GAME_ID
 having AB > 0) year_query
-group by BAT_ID
+group by BAT_ID, YEAR_ID
 having AT_BATS > 200
-order by BAT_ID;
+order by YEAR_ID desc, BAT_ID;
 
